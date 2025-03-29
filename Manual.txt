@@ -1,0 +1,108 @@
+## Manual de Uso Básico do github_upload.py
+
+O **github_upload.py** é um script que envia seu projeto diretamente para um repositório no GitHub, automatizando os comandos Git mais comuns. Abaixo está um guia simples para iniciantes.
+
+---
+
+### 1. Pré-Requisitos
+- **Python 3** instalado e disponível no terminal.
+- **Git** instalado e configurado (com git.exe ou binário no PATH).
+- Acesso a um **repositório do GitHub** (com URL).
+
+---
+
+### 2. Como Obter o Script
+1. Faça o download do arquivo `github_upload.py` e coloque-o na **pasta raiz** do seu projeto.
+
+---
+
+### 3. Uso Básico
+Existem duas formas principais de usar o script: **com argumentos** ou **de forma interativa**.
+
+#### 3.1. Com Argumentos (Rápido)
+
+1. **Abra o terminal** na pasta do seu projeto.
+2. Rode o comando abaixo, substituindo:
+   - `URL_DO_REPOSITORIO` pela URL do seu repositório GitHub.
+   - `"Mensagem de commit"` pela mensagem que deseja usar no commit.
+
+```bash
+python github_upload.py URL_DO_REPOSITORIO "Mensagem de commit"
+```
+
+Exemplo:
+```bash
+python github_upload.py https://github.com/usuario/meu-projeto.git "Primeira versão"
+```
+
+O script:
+- Inicializa o repositório (se necessário)
+- Conecta ao repositório remoto no GitHub
+- Adiciona todos os arquivos
+- Faz commit com a mensagem fornecida
+- Faz o push do código para o GitHub
+
+#### 3.2. Interativo (Passo a Passo)
+
+1. **Abra o terminal** na pasta do seu projeto.
+2. Digite:
+   ```bash
+   python github_upload.py
+   ```
+3. O script irá **perguntar** a URL do seu repositório GitHub.  
+   - Exemplo: `https://github.com/usuario/meu-projeto.git`
+4. Opcionalmente, informe uma **mensagem de commit**.
+   - Se você não digitar nada, usará uma mensagem padrão.
+5. O script fará o resto (adicionar arquivos, fazer commit e push).
+
+---
+
+### 4. Mensagens e Autenticação
+
+- Se houver **problemas de autenticação** (usuário/senha ou token), o script perguntará se você deseja:
+  - Inserir seu **token de acesso pessoal** (recomendado), **ou**
+  - Tentar login interativo via terminal.
+
+- Caso não tenha um **Personal Access Token** (PAT), você pode criar um na sua conta GitHub (em *Settings → Developer settings → Personal Access Tokens*).
+
+---
+
+### 5. Observando o Resultado
+
+- Se o **push** for bem-sucedido, você verá uma mensagem confirmando e o **link** do repositório no final.
+- Verifique no GitHub se seus arquivos foram realmente enviados.
+
+---
+
+### 6. Dicas Gerais
+
+1. **Mantenha um .gitignore** para não enviar arquivos desnecessários (ex: logs, cache).
+2. Se quiser mudar a **branch padrão** (entre “main” e “master”), o script tenta detectar automaticamente qual está ativa.
+3. Qualquer **conflito** ou **erro** será exibido no terminal com instruções para resolver (por exemplo, falha na autenticação).
+
+---
+
+### 7. Exemplo Rápido
+
+1. Na pasta do seu projeto, rode:
+   ```bash
+   python github_upload.py https://github.com/usuario/novo-repo.git "Primeira versão"
+   ```
+2. Caso seja a primeira vez, o script:
+   - Inicia um repositório Git local
+   - Remove qualquer configuração antiga de ‘origin’
+   - Configura o novo endereço remoto
+   - Adiciona todos os arquivos ao *stage*
+   - Cria um commit com a mensagem "Primeira versão"
+   - Faz *push* para o GitHub
+
+No final, você deve ver no terminal algo como:
+```
+✅ Push realizado com sucesso!
+🌐 Seu projeto foi enviado! Acesse: https://github.com/usuario/novo-repo
+🎉 Processo concluído com sucesso!
+```
+
+---
+
+Pronto! Agora seu projeto estará **versionado** e **acessível** no GitHub, tudo de forma simples e rápida.

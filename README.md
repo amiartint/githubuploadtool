@@ -1,7 +1,7 @@
 # GitHub Upload Script
 
 <div align="center">
-  <img src="public/logo_ami.png" alt="Am I Artificial Intelligence Logo" width="500" height="500">
+  <img src="public/logo_ami.png" alt="Am I Artificial Intelligence Logo" width="250" height="250">
   <h1>github_upload.py</h1>
   <p>Uma ferramenta Python simples e eficaz para enviar qualquer projeto para o GitHub em um único comando</p>
 </div>
